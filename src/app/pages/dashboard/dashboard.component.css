@@ -1,0 +1,88 @@
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+  }
+
+.container-formAdd{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.divInputs{
+    padding: 20px;
+}
+
+.container-button{
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    /* height: 100px; */
+}
+  
+  table {
+    border-collapse: collapse;
+    width: 80%;
+  }
+  
+  th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  .imgsContent{
+    cursor: pointer;
+    height: 15px;
+  }
+  .imgsContent:hover{
+    cursor: pointer;
+    height: 17px;
+  }
+
+  .noneClassButton{
+    background-color: rgba(0, 0, 0, 0);
+    margin: 0;
+    padding: 0;
+  }
+
+  .noneClassButton:hover{
+    background-color: rgba(0, 0, 0, 0);
+    margin: 0;
+    padding: 0;
+  }
+  
+  .contenedorImgs{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 35px;
+    margin-bottom: 15px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }

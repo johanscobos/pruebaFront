@@ -1,0 +1,58 @@
+
+
+
+
+<div class="table-container">
+
+    
+
+    <table>
+    
+      <thead>
+        <div class="container-button">
+            <button (click)="mostrarAddUserInputs()">Agregar Usuario</button>
+            <div *ngIf="mostrarAdd" class="">
+                <form [formGroup]="addUserForm" class="container-formAdd" (ngSubmit)="onSubmit()">
+                    <div class="divInputs">
+                        <label for="">nombres:</label>
+                        <input formControlName="nombres" type="text">
+                    </div>
+                    <div class="divInputs">
+                        <label for="">email:</label>
+                        <input formControlName="email" type="text">
+                    </div>
+                    <button type="submit" (click)="addUser()" [disabled]="addUserForm.invalid">Agregar</button>
+                </form>
+            </div>
+        </div>
+        
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Activo</th>
+          <th>Rol ID</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of users">
+          <td>{{ usuario.id }}</td>
+          <td>{{ usuario.nombres }}</td>
+          <td>{{ usuario.email }}</td>
+          <td>{{ usuario.activo ? 'Sí' : 'No' }}</td>
+          <td>{{ usuario.rol?.rolId }}</td>
+          <td class="contenedorImgs">
+            <button class="noneClassButton" (click)="showModalEdit()">
+                <img class="imgsContent" src="assets/img/edit.png" alt="">
+            </button>
+            <button class="noneClassButton" >
+                <img class="imgsContent" src="assets/img/bote.png" alt="">
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <app-modal-edit-data *ngIf="mostrarModal"></app-modal-edit-data>
