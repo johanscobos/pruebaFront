@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UsuarioBack, UsuarioBackForm } from '../interfaces/interfaceData';
+import { UsuarioBack, UsuarioBackForm, Usuario } from '../interfaces/interfaceData';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +22,9 @@ export class ServicesDataService {
 
   agregarUsuario(usuario: UsuarioBackForm): Observable<any> {
     return this.http.post<any>(this.usuarios, usuario);
+  }
+
+  eliminarUsuario(usuario: number): Observable<any> {
+    return this.http.delete<any>(this.usuarios + '/' + usuario);
   }
 }

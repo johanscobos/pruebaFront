@@ -8,8 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from "@angular/common/http";
 import { ReactiveFormsModule } from '@angular/forms';
 import { ModalEditDataComponent } from './pages/modal-edit-data/modal-edit-data.component';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -24,8 +22,6 @@ import { MatDialogModule } from '@angular/material/dialog';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatButtonModule,
-    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

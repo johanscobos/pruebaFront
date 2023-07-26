@@ -36,7 +36,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let usuario of users">
+        <tr *ngFor="let usuario of users; let indexOfelement=index">
           <td>{{ usuario.id }}</td>
           <td>{{ usuario.nombres }}</td>
           <td>{{ usuario.email }}</td>
@@ -46,7 +46,7 @@
             <button class="noneClassButton" (click)="showModalEdit()">
                 <img class="imgsContent" src="assets/img/edit.png" alt="">
             </button>
-            <button class="noneClassButton" >
+            <button class="noneClassButton" (click)="deleteUser(indexOfelement)">
                 <img class="imgsContent" src="assets/img/bote.png" alt="">
             </button>
           </td>

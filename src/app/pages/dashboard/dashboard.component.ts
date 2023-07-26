@@ -3,8 +3,6 @@ import { ServicesDataService } from './services/services-data.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuarioBack, rolID } from './interfaces/interfaceData';
 import { Router } from '@angular/router';
-import { log } from 'console';
-import { MatDialog } from '@angular/material/dialog';
 import { ModalEditDataComponent } from '../modal-edit-data/modal-edit-data.component';
 
 
@@ -34,7 +32,6 @@ export class DashboardComponent implements OnInit {
     private dataService: ServicesDataService,
     private formBuilder: FormBuilder, 
     private router: Router,
-    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -54,8 +51,17 @@ export class DashboardComponent implements OnInit {
     this.dataService.getUsers().subscribe(
       (data) => {
         this.users = data;
+      },
+      (error) => {
+      }
+    );
+  }
 
-        console.log('usuarios log back', this.users)
+  deleteUser(index: number){
+    /* console.log(index) */
+    this.dataService.eliminarUsuario(this.users[index].id).subscribe(
+      (data) => {
+        this.users = data;
       },
       (error) => {
       }
@@ -65,7 +71,6 @@ export class DashboardComponent implements OnInit {
   mostrarAddUserInputs() {
     this.enviado = true;
     this.mostrarAdd = true;
-    console.log('Hola Sebas');
   }
 
   onSubmit() {
@@ -79,18 +84,14 @@ export class DashboardComponent implements OnInit {
   }
 
   showModalEdit(){
-    this.openDialog();
+    console.log('Prueba')
   }
 
-  openDialog(): void {
-    this.dialog.open(ModalEditDataComponent);
-  }
 
   addUser(){
     console.log(this.addUserForm.value)
     this.dataService.agregarUsuario(this.addUserForm.value).subscribe({
       next: (data) => {
-          console.log('esta es la respuesta del back', data);
           location.reload();
         }
       });
